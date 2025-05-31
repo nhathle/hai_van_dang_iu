@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Nền đen cho toàn bộ trang */
+    color: white;
+    overflow: hidden; /* Ngăn thanh cuộn xuất hiện khi các phần tử bay ra ngoài */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao màn hình */
+}
+
+.hidden {
+    display: none !important; /* Quan trọng để ghi đè các display khác */
+}
+
+/* Màn hình ban đầu */
+#initial-screen {
+    text-align: center;
+    padding: 20px;
+    background-color: #222; /* Màu nền tối hơn một chút cho màn hình ban đầu */
+    border-radius: 10px;
+}
+
+#initial-screen img {
+    display: block;
+    margin: 0 auto 20px auto; /* Căn giữa ảnh QR */
+    border: 5px solid white;
+    border-radius: 5px;
+}
+
+.say-yes-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff80d7; /* Màu hồng neon */
+    text-shadow: 0 0 5px #ff80d7, 0 0 10px #ff80d7;
+    margin-bottom: 20px;
+}
+
+#scan-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #e91e63; /* Màu hồng đậm */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#scan-button:hover {
+    background-color: #c2185b; /* Màu hồng đậm hơn khi hover */
+}
+
+
+/* Màn hình hiệu ứng tỏ tình */
+#confession-screen {
+    position: fixed; /* Để chiếm toàn bộ màn hình và không bị cuộn */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000; /* Nền đen tuyền */
+    overflow: hidden; /* Quan trọng để các phần tử bay ra ngoài không gây thanh cuộn */
+}
+
+.floating-text, .floating-heart {
+    position: absolute;
+    white-space: nowrap; /* Ngăn chữ xuống dòng */
+    user-select: none; /* Không cho phép chọn chữ */
+    animation: floatUp linear forwards; /* Áp dụng animation */
+}
+
+.floating-text {
+    font-size: 16px; /* Kích thước có thể điều chỉnh */
+    color: #fff;
+    /* Hiệu ứng neon cho chữ */
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #ff80d7, /* Màu hồng neon */
+        0 0 20px #ff80d7,
+        0 0 25px #ff80d7,
+        0 0 30px #ff80d7,
+        0 0 35px #ff80d7;
+}
+
+.floating-heart {
+    font-size: 20px; /* Kích thước trái tim */
+    color: red;
+    text-shadow:
+        0 0 5px red,
+        0 0 10px red,
+        0 0 15px darkred;
+}
+
+/* Animation cho các phần tử bay lên */
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8); /* Bắt đầu từ dưới, hơi nhỏ và mờ */
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* Hiện rõ, về vị trí và kích thước bình thường */
+    }
+    90% {
+        opacity: 1; /* Vẫn còn hiện rõ */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(1.2); /* Bay lên cao, hơi to ra và mờ dần */
+    }
+}
+
+/* Lời thoại / lời bài hát cố định */
+#subtitle-container {
+    position: fixed;
+    bottom: 10%; /* Vị trí ở phía dưới màn hình */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 80%;
+    z-index: 1000; /* Đảm bảo luôn ở trên cùng */
+}
+
+#subtitle-text {
+    font-size: 28px; /* Kích thước lớn hơn */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.5); /* Nền hơi mờ để dễ đọc */
+    border-radius: 10px;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa, /* Thêm chút màu xanh lam cho nổi bật */
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+    opacity: 0; /* Ban đầu ẩn */
+    transition: opacity 0.5s ease-in-out; /* Hiệu ứng xuất hiện mượt mà */
+}

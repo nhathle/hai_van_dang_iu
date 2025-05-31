@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Tỏ Tình Bất Ngờ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Màn hình ban đầu (giả lập) -->
+    <div id="initial-screen">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SAY_YES_TO_ME" alt="QR Code">
+        <p class="say-yes-text">SAY YES</p>
+        <button id="scan-button">"Quét" để xem bất ngờ</button>
+    </div>
+
+    <!-- Màn hình hiệu ứng tỏ tình -->
+    <div id="confession-screen" class="hidden">
+        <!-- Các dòng chữ và trái tim sẽ được thêm vào đây bằng JavaScript -->
+    </div>
+
+    <!-- Phần lời thoại / lời bài hát cố định (như trong video) -->
+    <div id="subtitle-container" class="hidden">
+        <p id="subtitle-text"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
